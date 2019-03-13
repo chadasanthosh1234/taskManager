@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>Task Manager</h1>
+  <h4><a [routerLink]="['/task-create']" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true">Add Task</span></a>
+  </h4>
+  <h4>
+  <form #taskForm="ngForm">
+    <div class="form-group">
+        <label for="name">Task Name:</label>
+		<input type="text" [(ngModel)]="task.name" name="name">
+        <label for="name">Parent Task:</label>
+		<input type="text" [(ngModel)]="task.parentTaskName" name="parentTaskName"><br/>
+		<label for="name">PriorityFrom:</label>
+		<input type="text" [(ngModel)]="task.priorityFrom" name="priorityFrom">
+		<label for="name">PriorityTo:</label>
+		<input type="text" [(ngModel)]="task.priorityTo" name="priorityTo"><br/>
+		<label for="name">Start Date:</label>
+		<input type="date" [(ngModel)]="task.startDate" name="startDate">
+		<label for="name">End Date:</label>
+		<input type="date" [(ngModel)]="task.endDate" name="endDate">
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-success" [disabled]="!taskForm.form.valid" (click)="searchTask(task)">Search Task</button><br/>
+		<button type="submit" class="btn btn-success" [disabled]="!taskForm.form.valid" (click)="clearTasks()">Clear</button>
+    </div>
+ </form>
+  </h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>ParentTaskName</th>
+		<th>startDate</th>
+        <th>endDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.name }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.parentTaskName }}</td>
+        <td>{{ task.startDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ task.endDate | date: 'dd/MM/yyyy'}}</td>
+		<td><a [routerLink]="['/task-detail', task.id]">View Task</a></td>
+		<td><a [routerLink]="['/task-edit', task.id]">Edit</a></td>
+		<button (click)="endTask(task.id)">End Task</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
