@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Admin\Downloads\taskManager\taskManager\frontend\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\taskManagerGitWorkspace\frontend\src\styles.css */"./src/styles.css");
 
 
 /***/ })
