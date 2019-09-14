@@ -1,4 +1,4 @@
-package com.cts.taskManager.users;
+package com.cts.taskManager.util;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +8,20 @@ public class User {
 	String firstName;
 	String lastName;
 	String employeeId;
+	String projectId;
+	String taskId;
+	public String getProjectId() {
+		return projectId;
+	}
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+	public String getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

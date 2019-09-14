@@ -1,4 +1,4 @@
-package com.cts.taskManager.repositories;
+package com.cts.taskManager.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -11,10 +11,11 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.cts.taskManager.tasks.Task;
+import com.cts.taskManager.repositories.TaskRepository;
+import com.cts.taskManager.util.Task;
 
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class TaskServiceImpl implements TaskRepository {
 
     @Autowired
     private MongoTemplate mongoTemplate;

@@ -1,4 +1,4 @@
-package com.cts.taskManager.tasks;
+package com.cts.taskManager.util;
 
 import java.util.Date;
 
@@ -18,12 +18,14 @@ public class Task {
     String priorityTo;    
     Date startDate;
     Date endDate;
+    Project project;
+    User user;
 
     public Task() {
     }
 
     public Task(String id, String name, String parentTaskName, String parentTaskId, String priority, 
-    		String priorityFrom, String priorityTo, Date startDate, Date endDate) {
+    		String priorityFrom, String priorityTo, Date startDate, Date endDate, Project project, User user) {
         this.id = id;
     	this.name = name;
     	this.parentTaskName = parentTaskName;
@@ -33,6 +35,8 @@ public class Task {
         this.priorityTo = priorityTo;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.project = project;
+        this.user = user;
     }
 
     public String getId() {
@@ -55,7 +59,23 @@ public class Task {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setPriority(String priority) {
         this.priority = priority;
     }
 

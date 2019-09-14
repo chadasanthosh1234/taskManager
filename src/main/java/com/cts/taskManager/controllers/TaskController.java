@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.taskManager.repositories.TaskRepository;
-import com.cts.taskManager.tasks.Task;
+import com.cts.taskManager.util.Task;
 
 @RestController
 public class TaskController {

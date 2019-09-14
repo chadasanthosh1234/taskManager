@@ -2,7 +2,7 @@ package com.cts.taskManager.repositories;
 
 import java.util.List;
 
-import com.cts.taskManager.tasks.Task;
+import com.cts.taskManager.util.Task;
 
 public interface TaskRepository {
    Task findById(String Id);
