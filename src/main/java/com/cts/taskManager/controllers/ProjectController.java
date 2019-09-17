@@ -12,6 +12,7 @@ import com.cts.taskManager.util.Project;
 
 @RestController
 public class ProjectController {
+	
 	@Autowired
     ProjectRepository projectRepository;
 	
@@ -34,9 +35,9 @@ public class ProjectController {
 	@RequestMapping(method=RequestMethod.POST, value="/projects/{id}")
     public Project updateUser(@PathVariable String projectId, @RequestBody Project project) {
         Project c = projectRepository.findById(projectId);
-        if(project.getProjectName() != null)
+        if(project.getProjectName() != null) {
             c.setProjectName(project.getProjectName());
-       
+        }
         projectRepository.addProject(c);
         return project;
     }
