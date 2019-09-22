@@ -2,19 +2,23 @@ package com.cts.taskManager.repositories;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.cts.taskManager.util.Task;
+import com.cts.taskManager.model.Task;
 
+
+/**
+ * @author Admin
+ *
+ */
 @Repository
-public interface TaskRepository {
-   Task findById(String Id);
-   
-   Task addTask(Task task);
-   
-   List<Task> findAllTasks();
-
-   List<Task> searchTask(Task task);
-
-   
+public interface TaskRepository  extends JpaRepository<Task,Integer>{
+	/*@Query("SELECT count(t) FROM Task t where t.project.projectId = ?1")
+	public int getNoOfTask(int projectId); */
+	
+	@Query("SELECT task FROM Task task where task.project.projectId = :projectId")
+	public List<Task> getTasksByProjectId(@Param("projectId") int projectId); 
 }
