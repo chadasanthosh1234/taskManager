@@ -1,33 +1,25 @@
-package com.cts.taskManager.model;
+package com.cts.taskManager.service.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-public class Project {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="project_id")
+public class ProjectDto {
+	
 	private int projectId;
-	
-	@Column(name="project")
-	private String project;
-	
-	@Column(name="start_date")
-	private Date startDate;
-	
-	@Column(name="end_date")
-	private Date endDate;
-	
-	@Column(name="priority")
-	private String priority;
 
-	@Column(name="status")
-	private String status;
+	private String project;
+
+	private Date startDate;
+
+	private Date endDate;
+
+	private int priority;
+
+	private UserDto manager;
 	
+	private List<TaskDto> tasks = new ArrayList<>();
+
 	public int getProjectId() {
 		return projectId;
 	}
@@ -60,19 +52,28 @@ public class Project {
 		this.endDate = endDate;
 	}
 
-	public String getPriority() {
+	public int getPriority() {
 		return priority;
 	}
 
-	public void setPriority(String priority) {
+	public void setPriority(int priority) {
 		this.priority = priority;
 	}
 
-	public String getStatus() {
-		return status;
+	public UserDto getManager() {
+		return manager;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setManager(UserDto manager) {
+		this.manager = manager;
 	}
+
+	public List<TaskDto> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<TaskDto> tasks) {
+		this.tasks = tasks;
+	}
+    
 }
